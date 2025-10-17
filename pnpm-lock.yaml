@@ -144,9 +144,6 @@ importers:
       whence:
         specifier: ^2.0.0
         version: 2.1.0
-      zod:
-        specifier: 'catalog:'
-        version: 4.1.11
     devDependencies:
       '@astahmer/eslint-config-ts':
         specifier: ^0.1.5
@@ -193,6 +190,9 @@ importers:
       vitest:
         specifier: ^0.22.1
         version: 0.22.1(terser@5.44.0)
+      zod:
+        specifier: 'catalog:'
+        version: 4.1.11
 
   playground:
     dependencies:
