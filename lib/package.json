@@ -1,6 +1,6 @@
 {
     "name": "openapi-zod-client",
-    "version": "1.18.3",
+    "version": "2.0.0",
     "repository": {
         "type": "git",
         "url": "https://github.com/astahmer/openapi-zod-client.git"
@@ -23,7 +23,7 @@
     "dependencies": {
         "@apidevtools/swagger-parser": "^10.1.0",
         "@liuli-util/fs-extra": "^0.1.0",
-        "@zodios/core": "^10.3.1",
+        "@franklin-ai/zodios": "12.0.0",
         "axios": "^1.6.0",
         "cac": "^6.7.14",
         "handlebars": "^4.7.7",

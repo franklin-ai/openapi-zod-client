@@ -1,4 +1,4 @@
-import type { ZodiosEndpointDefinition } from "@zodios/core";
+import type { ZodiosEndpointDefinition } from "@franklin-ai/zodios";
 import type {
     OpenAPIObject,
     OperationObject,
@@ -262,7 +262,7 @@ export const getZodiosEndpointDefinitionList = (doc: OpenAPIObject, options?: Te
                     const paramCode = getZodSchema({
                         schema: paramSchema ?? {},
                         ctx,
-                        meta: { isRequired: paramItem.in === "path" ? true : paramItem.required ?? false },
+                        meta: { isRequired: paramItem.in === "path" ? true : (paramItem.required ?? false) },
                         options,
                     });
 
@@ -466,7 +466,7 @@ const allowedParamMediaTypes = [
 ] as const;
 const isAllowedParamMediaTypes = (
     mediaType: string
-): mediaType is typeof allowedParamMediaTypes[number] | `application/${string}json${string}` | `text/${string}` =>
+): mediaType is (typeof allowedParamMediaTypes)[number] | `application/${string}json${string}` | `text/${string}` =>
     (mediaType.includes("application/") && mediaType.includes("json")) ||
     allowedParamMediaTypes.includes(mediaType as any) ||
     mediaType.includes("text/");

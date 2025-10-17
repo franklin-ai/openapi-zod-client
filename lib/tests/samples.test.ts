@@ -45,7 +45,7 @@ describe("samples-generator", async () => {
             Object.fromEntries(Object.entries(resultByFile).map(([key, value]) => [key.split("samples/").at(1), value]))
         ).toMatchInlineSnapshot(`
           {
-              "v3.0/api-with-examples.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.0/api-with-examples.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const endpoints = makeApi([
@@ -69,7 +69,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.0/callback-example.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.0/callback-example.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const endpoints = makeApi([
@@ -95,7 +95,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.0/link-example.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.0/link-example.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const user = z.object({ username: z.string(), uuid: z.string() }).partial().passthrough();
@@ -233,7 +233,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.0/petstore-expanded.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.0/petstore-expanded.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const NewPet = z.object({ name: z.string(), tag: z.string().optional() }).passthrough();
@@ -321,7 +321,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.0/petstore.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.0/petstore.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Pet = z.object({ id: z.number().int(), name: z.string(), tag: z.string().optional() }).passthrough();
@@ -375,7 +375,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.0/uspto.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.0/uspto.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const dataSetList = z
@@ -463,7 +463,7 @@ describe("samples-generator", async () => {
                           schema: z.string().default("oa_citations"),
                       },
                   ],
-                  response: z.array(z.record(z.object({}).partial().passthrough())),
+                  response: z.array(z.record(z.string(), z.object({}).partial().passthrough())),
                   errors: [
                       {
                           status: 404,
@@ -480,7 +480,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.1/non-oauth-scopes.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.1/non-oauth-scopes.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const endpoints = makeApi([
@@ -498,7 +498,7 @@ describe("samples-generator", async () => {
               return new Zodios(baseUrl, endpoints, options);
           }
           ",
-              "v3.1/webhook-example.": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+              "v3.1/webhook-example.": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const endpoints = makeApi([]);

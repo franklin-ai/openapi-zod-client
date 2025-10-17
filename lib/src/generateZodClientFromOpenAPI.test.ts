@@ -229,7 +229,7 @@ test("getZodClientTemplateContext", async () => {
                   "parameters": [],
                   "path": "/store/inventory",
                   "requestFormat": "json",
-                  "response": "z.record(z.number().int())",
+                  "response": "z.record(z.string(), z.number().int())",
               },
               {
                   "description": "Place a new order in the store",
@@ -468,7 +468,7 @@ describe("generateZodClientFromOpenAPI", () => {
     test("without options", async () => {
         const prettyOutput = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Category = z
@@ -737,7 +737,7 @@ describe("generateZodClientFromOpenAPI", () => {
               path: "/store/inventory",
               description: \`Returns a map of status codes to quantities\`,
               requestFormat: "json",
-              response: z.record(z.number().int()),
+              response: z.record(z.string(), z.number().int()),
             },
             {
               method: "post",
@@ -961,7 +961,7 @@ describe("generateZodClientFromOpenAPI", () => {
             options: { withAlias: true },
         });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Category = z
@@ -1239,7 +1239,7 @@ describe("generateZodClientFromOpenAPI", () => {
               alias: "getInventory",
               description: \`Returns a map of status codes to quantities\`,
               requestFormat: "json",
-              response: z.record(z.number().int()),
+              response: z.record(z.string(), z.number().int()),
             },
             {
               method: "post",
@@ -1473,7 +1473,7 @@ describe("generateZodClientFromOpenAPI", () => {
             options: { withAlias: false },
         });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Category = z
@@ -1742,7 +1742,7 @@ describe("generateZodClientFromOpenAPI", () => {
               path: "/store/inventory",
               description: \`Returns a map of status codes to quantities\`,
               requestFormat: "json",
-              response: z.record(z.number().int()),
+              response: z.record(z.string(), z.number().int()),
             },
             {
               method: "post",
@@ -1967,11 +1967,11 @@ describe("generateZodClientFromOpenAPI", () => {
                 withAlias: (path: string, method: string, operation) =>
                     path === "/pet"
                         ? method + "CustomPet"
-                        : operation?.operationId ?? method + pathToVariableName(path || "/noPath"),
+                        : (operation?.operationId ?? method + pathToVariableName(path || "/noPath")),
             },
         });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Category = z
@@ -2249,7 +2249,7 @@ describe("generateZodClientFromOpenAPI", () => {
               alias: "getInventory",
               description: \`Returns a map of status codes to quantities\`,
               requestFormat: "json",
-              response: z.record(z.number().int()),
+              response: z.record(z.string(), z.number().int()),
             },
             {
               method: "post",
@@ -2485,7 +2485,7 @@ describe("generateZodClientFromOpenAPI", () => {
             },
         });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Category = z
@@ -2754,7 +2754,7 @@ describe("generateZodClientFromOpenAPI", () => {
               path: "/store/inventory",
               description: \`Returns a map of status codes to quantities\`,
               requestFormat: "json",
-              response: z.record(z.number().int()),
+              response: z.record(z.string(), z.number().int()),
             },
             {
               method: "post",
@@ -2980,7 +2980,7 @@ describe("generateZodClientFromOpenAPI", () => {
             },
         });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           const Category = z
@@ -3246,7 +3246,7 @@ describe("generateZodClientFromOpenAPI", () => {
               path: "/store/inventory",
               description: \`Returns a map of status codes to quantities\`,
               requestFormat: "json",
-              response: z.record(z.number().int()),
+              response: z.record(z.string(), z.number().int()),
             },
             {
               method: "post",
@@ -3470,7 +3470,7 @@ describe("generateZodClientFromOpenAPI", () => {
             options: { groupStrategy: "tag-file" },
         });
         expect(prettyOutput["pet"]).toMatchInlineSnapshot(`
-        "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+        "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
         import { z } from "zod";
 
         const Category = z
@@ -3893,7 +3893,7 @@ test("with optional, partial, all required objects", async () => {
 
     const prettyOutput = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
     expect(prettyOutput).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       type Root2 = {
@@ -4003,9 +4003,9 @@ test("with optional, partial, all required objects", async () => {
     `);
 });
 
-test('getZodClientTemplateContext with allReadonly', async () => {
+test("getZodClientTemplateContext with allReadonly", async () => {
     const result = getZodClientTemplateContext(openApiDoc, {
-        allReadonly: true
+        allReadonly: true,
     });
     expect(result).toMatchInlineSnapshot(`
       {
@@ -4224,7 +4224,7 @@ test('getZodClientTemplateContext with allReadonly', async () => {
                   "parameters": [],
                   "path": "/store/inventory",
                   "requestFormat": "json",
-                  "response": "z.record(z.number().int())",
+                  "response": "z.record(z.string(), z.number().int())",
               },
               {
                   "description": "Place a new order in the store",

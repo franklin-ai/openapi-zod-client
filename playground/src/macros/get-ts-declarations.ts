@@ -29,11 +29,11 @@ const getTypesDeclaration = async (name: string) => {
 };
 
 const getTsDeclarations = async () => {
-    const declarations = await Promise.all([getTypesDeclaration("@zodios/core"), getTypesDeclaration("zod")]);
+    const declarations = await Promise.all([getTypesDeclaration("@franklin-ai/zodios"), getTypesDeclaration("zod")]);
 
     return {
         data: [
-            { name: "@zodios/core", code: `declare module '@zodios/core' { ${declarations[0]} }` },
+            { name: "@franklin-ai/zodios", code: `declare module '@franklin-ai/zodios' { ${declarations[0]} }` },
             { name: "zod", code: `declare module 'zod' { ${declarations[1]} }` },
         ],
     };

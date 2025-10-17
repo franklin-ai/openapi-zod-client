@@ -53,7 +53,7 @@ test("array-body-with-chains-tag-group-strategy", async () => {
     });
     expect(output).toMatchInlineSnapshot(`
       {
-          "Test": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "Test": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const putTest_Body = z.array(z.object({ testItem: z.string() }).partial());

@@ -46,7 +46,7 @@ test("enum-min-max", async () => {
 
     const output = await generateZodClientFromOpenAPI({ disableWriteToFile: true, openApiDoc });
     expect(output).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const endpoints = makeApi([

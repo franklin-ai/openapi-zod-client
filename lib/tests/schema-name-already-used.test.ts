@@ -176,7 +176,7 @@ test("schema-name-already-used", async () => {
     });
 
     expect(result).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const schemaNameAlreadyUsed = z.enum(["xxx", "yyy", "zzz"]).optional();

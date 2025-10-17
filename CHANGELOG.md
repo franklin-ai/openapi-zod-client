@@ -176,7 +176,7 @@
 * **lib:** options.willSuppressWarnings ([5ae86e5](https://github.com/astahmer/openapi-zod-client/commit/5ae86e5fa80b62a755df64e5151af02303049f26))
 * **lib:** whence.functions = true ([ab1041f](https://github.com/astahmer/openapi-zod-client/commit/ab1041f044d78222ed89791bdb79e5358d8540bc))
 * options builder + preview cli options/ts usage with copy button ([78aed6a](https://github.com/astahmer/openapi-zod-client/commit/78aed6a7903d9b62aeead2112adf7d8cbeabf1f5))
-* **playground:** add zod + @zodios/core declarations to monaco ([5e53982](https://github.com/astahmer/openapi-zod-client/commit/5e53982272dbbb3fece0bd68f312917f262cf62c))
+* **playground:** add zod + @franklin-ai/zodios declarations to monaco ([5e53982](https://github.com/astahmer/openapi-zod-client/commit/5e53982272dbbb3fece0bd68f312917f262cf62c))
 * **playground:** customizable prettier config + multiple prettier tabs ([bf68177](https://github.com/astahmer/openapi-zod-client/commit/bf681773fd2c188564f0b3fb4911b6936684ebaa))
 * **playground:** go to file ([e28e409](https://github.com/astahmer/openapi-zod-client/commit/e28e40964b3efc504151a305f02754a22a6b2928))
 * **playground:** PoC for in-browser lib usage ([772e301](https://github.com/astahmer/openapi-zod-client/commit/772e3013e7d09dd86933cbe3723500f0fd6ce799))
@@ -307,6 +307,3 @@
 * openApiToTypescript with tanu.js ([b4f8352](https://github.com/astahmer/openapi-zod-client/commit/b4f835265257f2eea63ea2aaf8492e727b45833e))
 * **openApiToTypescript:** handle additionalProperties ([101e1b0](https://github.com/astahmer/openapi-zod-client/commit/101e1b05310f3968f85b9bbe87459b024c96909b))
 * string/number/array validations + format [#8](https://github.com/astahmer/openapi-zod-client/issues/8) + [#9](https://github.com/astahmer/openapi-zod-client/issues/9) ([e4d6354](https://github.com/astahmer/openapi-zod-client/commit/e4d6354cf3f63bd0e2f8a87181b05c610195073c))
-
-
-

@@ -186,7 +186,7 @@ test("export-all-named-schemas", async () => {
     });
 
     expect(result).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const sameSchemaSameName = z.enum(["xxx", "yyy", "zzz"]).optional();

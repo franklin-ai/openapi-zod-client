@@ -225,7 +225,7 @@ test("group-strategy", async () => {
         options: { groupStrategy: "tag" },
     });
     expect(resultGroupedByTag).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios } from "@zodios/core";
+      "import { makeApi, Zodios } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const petEndpoints = makeApi([
@@ -459,7 +459,7 @@ test("group-strategy", async () => {
     });
 
     expect(resultGroupedByMethod).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios } from "@zodios/core";
+      "import { makeApi, Zodios } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const getEndpoints = makeApi([
@@ -592,22 +592,22 @@ test("group-strategy: tag-file with modified petstore schema", async () => {
       export { StoreApi } from "./store";
       export { UserApi } from "./user";
       ",
-          "pet": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "pet": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
-      
+
       import { Pet } from "./common";
       import { Category } from "./common";
       import { Tag } from "./common";
-      
+
       const ApiResponse = z
         .object({ code: z.number().int(), type: z.string(), message: z.string() })
         .partial()
         .passthrough();
-      
+
       export const schemas = {
         ApiResponse,
       };
-      
+
       const endpoints = makeApi([
         {
           method: "put",
@@ -814,20 +814,20 @@ test("group-strategy: tag-file with modified petstore schema", async () => {
           response: ApiResponse,
         },
       ]);
-      
+
       export const PetApi = new Zodios(endpoints);
-      
+
       export function createApiClient(baseUrl: string, options?: ZodiosOptions) {
         return new Zodios(baseUrl, endpoints, options);
       }
       ",
-          "store": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "store": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
-      
+
       import { Pet } from "./common";
       import { Category } from "./common";
       import { Tag } from "./common";
-      
+
       const Order = z
         .object({
           id: z.number().int(),
@@ -840,18 +840,18 @@ test("group-strategy: tag-file with modified petstore schema", async () => {
         })
         .partial()
         .passthrough();
-      
+
       export const schemas = {
         Order,
       };
-      
+
       const endpoints = makeApi([
         {
           method: "get",
           path: "/store/inventory",
           description: \`Returns a map of status codes to quantities\`,
           requestFormat: "json",
-          response: z.record(z.number().int()),
+          response: z.record(z.string(), z.number().int()),
         },
         {
           method: "post",
@@ -927,16 +927,16 @@ test("group-strategy: tag-file with modified petstore schema", async () => {
           ],
         },
       ]);
-      
+
       export const StoreApi = new Zodios(endpoints);
-      
+
       export function createApiClient(baseUrl: string, options?: ZodiosOptions) {
         return new Zodios(baseUrl, endpoints, options);
       }
       ",
-          "user": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "user": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
-      
+
       const User = z
         .object({
           id: z.number().int(),
@@ -950,11 +950,11 @@ test("group-strategy: tag-file with modified petstore schema", async () => {
         })
         .partial()
         .passthrough();
-      
+
       export const schemas = {
         User,
       };
-      
+
       const endpoints = makeApi([
         {
           method: "post",
@@ -1088,9 +1088,9 @@ test("group-strategy: tag-file with modified petstore schema", async () => {
           ],
         },
       ]);
-      
+
       export const UserApi = new Zodios(endpoints);
-      
+
       export function createApiClient(baseUrl: string, options?: ZodiosOptions) {
         return new Zodios(baseUrl, endpoints, options);
       }
@@ -1365,7 +1365,7 @@ test("group-strategy with complex schemas + split files", async () => {
 
     expect(resultGroupedByTagSplitByFiles).toMatchInlineSnapshot(`
       {
-          "Default": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "Default": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       import { Country } from "./common";
@@ -1451,7 +1451,7 @@ test("group-strategy with complex schemas + split files", async () => {
       export { StoreApi } from "./store";
       export { DefaultApi } from "./Default";
       ",
-          "pet": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "pet": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       import { User } from "./common";
@@ -1498,7 +1498,7 @@ test("group-strategy with complex schemas + split files", async () => {
         return new Zodios(baseUrl, endpoints, options);
       }
       ",
-          "store": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "store": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       import { Store } from "./common";
@@ -1526,7 +1526,7 @@ test("group-strategy with complex schemas + split files", async () => {
         return new Zodios(baseUrl, endpoints, options);
       }
       ",
-          "user": "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "user": "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       import { User } from "./common";

@@ -122,7 +122,7 @@ test("inline-simple-schemas", async () => {
 
     const ctx = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
     expect(ctx).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const BasicString = z.string();

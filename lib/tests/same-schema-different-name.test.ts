@@ -115,7 +115,7 @@ test("same-schema-different-name", async () => {
         options: { complexityThreshold: 2 },
     });
     expect(result).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const sameSchemaDifferentName = z.enum(["aaa", "bbb", "ccc"]).optional();

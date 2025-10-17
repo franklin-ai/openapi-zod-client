@@ -125,7 +125,7 @@ describe("recursive-schema", () => {
 
         const prettyOutput = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           type User = Partial<{
@@ -321,7 +321,9 @@ describe("recursive-schema", () => {
                 },
                 ctx,
             })
-        ).toMatchInlineSnapshot('"z.object({ recursiveUser: UserWithFriends, basic: z.number() }).partial().passthrough()"');
+        ).toMatchInlineSnapshot(
+            '"z.object({ recursiveUser: UserWithFriends, basic: z.number() }).partial().passthrough()"'
+        );
         expect(ctx).toMatchInlineSnapshot(`
           {
               "resolver": {
@@ -474,7 +476,7 @@ describe("recursive-schema", () => {
 
         const prettyOutput = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           type User = Partial<{
@@ -617,7 +619,7 @@ describe("recursive-schema", () => {
         const openApiDoc = makeOpenApiDoc(schemas, RootSchema);
         const prettyOutput = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           type Playlist = Partial<{

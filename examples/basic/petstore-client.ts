@@ -1,4 +1,4 @@
-import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
 import { z } from "zod";
 
 const Category = z.object({ id: z.number().int(), name: z.string() }).partial();

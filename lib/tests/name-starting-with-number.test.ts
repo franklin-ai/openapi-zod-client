@@ -46,7 +46,7 @@ test("operationId-starting-with-number", async () => {
         options: { withAlias: true },
     });
     expect(result).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const Basic = z.string();

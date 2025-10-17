@@ -170,7 +170,7 @@ describe("export-all-types", () => {
             },
         });
         expect(prettyOutput).toMatchInlineSnapshot(`
-          "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+          "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
           import { z } from "zod";
 
           type Playlist = Partial<{

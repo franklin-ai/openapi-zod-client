@@ -53,7 +53,7 @@ it("includes errors-responses", async () => {
     const result = await generateZodClientFromOpenAPI({ openApiDoc, disableWriteToFile: true });
 
     expect(result).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const endpoints = makeApi([
@@ -167,7 +167,7 @@ it("determines which status are considered errors-responses", async () => {
     });
 
     expect(result).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const VeryDeeplyNested = z.enum(["aaa", "bbb", "ccc"]);
@@ -230,7 +230,7 @@ it("determines which status are considered errors-responses", async () => {
             openApiDoc,
         })
     ).toMatchInlineSnapshot(`
-      "import { makeApi, Zodios, type ZodiosOptions } from "@zodios/core";
+      "import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
       import { z } from "zod";
 
       const VeryDeeplyNested = z.enum(["aaa", "bbb", "ccc"]);
