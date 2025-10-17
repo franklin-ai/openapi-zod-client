@@ -26,7 +26,7 @@ export default defineConfig((env) => {
         resolve: {
             alias: {
                 "pastable/server": "pastable",
-                // "openapi-zod-client": path.resolve(__dirname, "../lib"),
+                // "@franklin-ai/openapi-zod-client": path.resolve(__dirname, "../lib"),
             },
         },
     };

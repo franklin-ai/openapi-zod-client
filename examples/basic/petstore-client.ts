@@ -1,27 +1,30 @@
 import { makeApi, Zodios, type ZodiosOptions } from "@franklin-ai/zodios";
 import { z } from "zod";
 
-const Category = z.object({ id: z.number().int(), name: z.string() }).partial();
-const Tag = z.object({ id: z.number().int(), name: z.string() }).partial();
-const Pet = z.object({
-    id: z.number().int().optional(),
-    name: z.string(),
-    category: Category.optional(),
-    photoUrls: z.array(z.string()),
-    tags: z.array(Tag).optional(),
-    status: z.enum(["available", "pending", "sold"]).optional(),
-});
-const ApiResponse = z.object({ code: z.number().int(), type: z.string(), message: z.string() }).partial();
+const Category = z.object({ id: z.number().int(), name: z.string() }).partial().passthrough();
+const Tag = z.object({ id: z.number().int(), name: z.string() }).partial().passthrough();
+const Pet = z
+    .object({
+        id: z.number().int().optional(),
+        name: z.string(),
+        category: Category.optional(),
+        photoUrls: z.array(z.string()),
+        tags: z.array(Tag).optional(),
+        status: z.enum(["available", "pending", "sold"]).optional(),
+    })
+    .passthrough();
+const ApiResponse = z.object({ code: z.number().int(), type: z.string(), message: z.string() }).partial().passthrough();
 const Order = z
     .object({
         id: z.number().int(),
         petId: z.number().int(),
         quantity: z.number().int(),
-        shipDate: z.string(),
+        shipDate: z.string().datetime({ offset: true }),
         status: z.enum(["placed", "approved", "delivered"]),
         complete: z.boolean(),
     })
-    .partial();
+    .partial()
+    .passthrough();
 const User = z
     .object({
         id: z.number().int(),
@@ -33,7 +36,8 @@ const User = z
         phone: z.string(),
         userStatus: z.number().int(),
     })
-    .partial();
+    .partial()
+    .passthrough();
 
 export const schemas = {
     Category,
@@ -251,7 +255,7 @@ const endpoints = makeApi([
         path: "/store/inventory",
         description: `Returns a map of status codes to quantities`,
         requestFormat: "json",
-        response: z.record(z.number()),
+        response: z.record(z.string(), z.number().int()),
     },
     {
         method: "post",

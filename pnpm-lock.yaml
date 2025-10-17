@@ -51,12 +51,12 @@ importers:
       '@apidevtools/swagger-parser':
         specifier: ^10.1.0
         version: 10.1.1(openapi-types@12.1.3)
+      '@franklin-ai/openapi-zod-client':
+        specifier: workspace:^1.0.0
+        version: link:../../lib
       '@franklin-ai/zodios':
         specifier: 12.0.0
         version: 12.0.0(axios@1.12.2)(zod@4.1.11)
-      openapi-zod-client:
-        specifier: workspace:^1.0.0
-        version: link:../../lib
       zod:
         specifier: 'catalog:'
         version: 4.1.11
@@ -76,7 +76,7 @@ importers:
       '@apidevtools/swagger-parser':
         specifier: ^10.1.0
         version: 10.1.1(openapi-types@12.1.3)
-      openapi-zod-client:
+      '@franklin-ai/openapi-zod-client':
         specifier: workspace:^1.0.0
         version: link:../../lib
       zod:
@@ -92,7 +92,7 @@ importers:
       '@apidevtools/swagger-parser':
         specifier: ^10.1.0
         version: 10.1.1(openapi-types@12.1.3)
-      openapi-zod-client:
+      '@franklin-ai/openapi-zod-client':
         specifier: workspace:^1.0.0
         version: link:../../lib
       zod:
@@ -208,6 +208,9 @@ importers:
       '@emotion/styled':
         specifier: ^11.10.5
         version: 11.14.1(@emotion/react@11.14.0(@types/react@18.3.26)(react@18.3.1))(@types/react@18.3.26)(react@18.3.1)
+      '@franklin-ai/openapi-zod-client':
+        specifier: workspace:^1.8.0
+        version: link:../lib
       '@franklin-ai/zodios':
         specifier: 12.0.0
         version: 12.0.0(axios@1.12.2)(zod@4.1.11)
@@ -235,9 +238,6 @@ importers:
       monaco-editor:
         specifier: ^0.34.1
         version: 0.34.1
-      openapi-zod-client:
-        specifier: workspace:^1.8.0
-        version: link:../lib
       pastable:
         specifier: ^2.0.13
         version: 2.2.1(react@18.3.1)(xstate@4.38.3)
